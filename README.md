@@ -2,7 +2,7 @@
 
 These are my solutions to the AdventOfCode challenges written in Golang.
 
-# Hot to get
+# How to get
 
 ## Download
 
