@@ -23,10 +23,15 @@ func parseData(input *bufio.Scanner) (seatIDs map[int]bool) {
 	seatIDs = make(map[int]bool)
 	for input.Scan() {
 		line := input.Text()
-		seatID := findBinary(0, 127, line[:7], 'F', 'B')*8 + findBinary(0, 7, line[7:], 'L', 'R')
+		seatID := calculateID(line)
 		seatIDs[seatID] = true
 	}
 	return seatIDs
+}
+
+func calculateID(line string) (seatID int) {
+	seatID = findBinary(0, 127, line[:7], 'F', 'B')*8 + findBinary(0, 7, line[7:], 'L', 'R')
+	return seatID
 }
 
 func challenge1(seatIDs map[int]bool) int {
