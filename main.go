@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/alecthomas/kong"
 	day1 "github.com/jugendhacker/adventofcode/2020/Day1"
+	day5 "github.com/jugendhacker/adventofcode/2020/Day5"
 	day6 "github.com/jugendhacker/adventofcode/2020/Day6"
 	day7 "github.com/jugendhacker/adventofcode/2020/Day7"
 )
@@ -18,6 +19,8 @@ func main() {
 	switch cli.Day {
 	case 1:
 		day1.Run(cli.InputPath)
+	case 5:
+		day5.Run(cli.InputPath)
 	case 6:
 		day6.Run(cli.InputPath)
 	case 7:
