@@ -1,4 +1,4 @@
-package main
+package day6
 
 import (
 	"fmt"
@@ -6,8 +6,8 @@ import (
 	"strings"
 )
 
-func main() {
-	fileContent, _ := ioutil.ReadFile("input")
+func Run(input string) {
+	fileContent, _ := ioutil.ReadFile(input)
 	fileText := string(fileContent)
 
 	groups := strings.Split(fileText, "\n\n")
@@ -16,7 +16,7 @@ func main() {
 	fmt.Printf("Challenge 2 sum: %v\n", challenge2(groups))
 }
 
-func challenge1(groups []string) int{
+func challenge1(groups []string) int {
 	var answerSum int
 	for _, group := range groups {
 		replacer := strings.NewReplacer("\n", "")
@@ -24,8 +24,8 @@ func challenge1(groups []string) int{
 
 		chars := make(map[rune]bool)
 
-		for _, char := range group{
-			if _, ok := chars[char]; !ok{
+		for _, char := range group {
+			if _, ok := chars[char]; !ok {
 				chars[char] = true
 			}
 		}
