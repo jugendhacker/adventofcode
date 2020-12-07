@@ -2,6 +2,13 @@
 
 These are my solutions to the AdventOfCode challenges written in Golang.
 
+# About
+
+This project is made to build every challenge solution into one single binary, so you could play around with it.
+
+To do this there is one `main.go` file which only selects which challenge to run. Each challenge solution resides in it's own sub package together with a unit test based on the explenations on the AdeventOfCode website. The main file then only calls the `Run()` function on the right package and gives it the path passed as commandline argument.
+
+
 # How to get
 
 ## Download
