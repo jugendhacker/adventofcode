@@ -7,7 +7,7 @@ import (
 )
 
 type CLI struct {
-	Day       int    `help:"Day to run"`
+	Day       int    `help:"Day to run" short:"d"`
 	InputPath string `arg name:"path" help:"Path to input file" type:"path"`
 }
 
