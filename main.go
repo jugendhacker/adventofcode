@@ -4,6 +4,7 @@ import (
 	"github.com/alecthomas/kong"
 	day1 "github.com/jugendhacker/adventofcode/2020/Day1"
 	day2 "github.com/jugendhacker/adventofcode/2020/Day2"
+	day3 "github.com/jugendhacker/adventofcode/2020/Day3"
 	day5 "github.com/jugendhacker/adventofcode/2020/Day5"
 	day6 "github.com/jugendhacker/adventofcode/2020/Day6"
 	day7 "github.com/jugendhacker/adventofcode/2020/Day7"
@@ -22,6 +23,8 @@ func main() {
 		day1.Run(cli.InputPath)
 	case 2:
 		day2.Run(cli.InputPath)
+	case 3:
+		day3.Run(cli.InputPath)
 	case 5:
 		day5.Run(cli.InputPath)
 	case 6:
