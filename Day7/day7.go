@@ -1,4 +1,4 @@
-package main
+package day7
 
 import (
 	"bufio"
@@ -13,8 +13,8 @@ type bagWithCount struct {
 	count int
 }
 
-func main() {
-	f, _ := os.Open("input")
+func Run(input string) {
+	f, _ := os.Open(input)
 	defer f.Close()
 
 	scanner := bufio.NewScanner(f)

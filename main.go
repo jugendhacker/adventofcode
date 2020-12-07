@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/alecthomas/kong"
 	day1 "github.com/jugendhacker/adventofcode/2020/Day1"
+	day7 "github.com/jugendhacker/adventofcode/2020/Day7"
 )
 
 type CLI struct {
@@ -16,5 +17,7 @@ func main() {
 	switch cli.Day {
 	case 1:
 		day1.Run(cli.InputPath)
+	case 7:
+		day7.Run(cli.InputPath)
 	}
 }
