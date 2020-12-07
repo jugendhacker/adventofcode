@@ -18,11 +18,17 @@ func Run(input string) {
 	defer f.Close()
 
 	scanner := bufio.NewScanner(f)
+	rules := parseInput(scanner)
 
-	rules := make(map[string][]bagWithCount)
+	fmt.Printf("Challenge 1: counted %v gold\n", challenge1(rules))
+	fmt.Printf("Challenge 2: need %v bags\n", challenge2(rules))
+}
 
-	for scanner.Scan() {
-		line := scanner.Text()
+func parseInput(input *bufio.Scanner) (rules map[string][]bagWithCount) {
+	rules = make(map[string][]bagWithCount)
+
+	for input.Scan() {
+		line := input.Text()
 		lineSplit := strings.Split(line, " bags contain ")
 
 		var contents []bagWithCount
@@ -44,8 +50,7 @@ func Run(input string) {
 		rules[lineSplit[0]] = contents
 	}
 
-	fmt.Printf("Challenge 1: counted %v gold\n", challenge1(rules))
-	fmt.Printf("Challenge 2: need %v bags\n", challenge2(rules, "shiny gold")-1)
+	return rules
 }
 
 func challenge1(rules map[string][]bagWithCount) int {
@@ -72,10 +77,14 @@ func findGold(rules map[string][]bagWithCount, color string) bool {
 	return false
 }
 
-func challenge2(rules map[string][]bagWithCount, color string) int {
+func challenge2(rules map[string][]bagWithCount) int {
+	return _challenge2(rules, "shiny gold") - 1
+}
+
+func _challenge2(rules map[string][]bagWithCount, color string) int {
 	var count int
 	for _, bag := range rules[color] {
-		count += bag.count * challenge2(rules, bag.bag)
+		count += bag.count * _challenge2(rules, bag.bag)
 	}
 	return count + 1
 }
