@@ -1,4 +1,4 @@
-package main
+package day1
 
 import (
 	"bufio"
@@ -7,8 +7,8 @@ import (
 	"strconv"
 )
 
-func main() {
-	f, _ := os.Open("input")
+func Run(input string) {
+	f, _ := os.Open(input)
 	defer f.Close()
 
 	var numbers []int
