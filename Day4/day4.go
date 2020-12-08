@@ -44,6 +44,10 @@ func challenge1(passports []string) (validPassports int) {
 }
 
 func challenge2(passports []string) (validPassports int) {
+	regexHcl, _ := regexp.Compile(`^#[0-9a-f]{6}$`)
+	regexEcl, _ := regexp.Compile(`^(amb|blu|brn|gry|grn|hzl|oth)$`)
+	regexPid, _ := regexp.Compile(`^\d{9}$`)
+
 	for _, passport := range passports {
 		invalid := false
 		r := strings.NewReplacer("\n", " ")
@@ -92,15 +96,15 @@ func challenge2(passports []string) (validPassports int) {
 			continue
 		}
 
-		if match, _ := regexp.MatchString("^#[0-9a-f]{6}$", fields["hcl"]); !match {
+		if match := regexHcl.MatchString(fields["hcl"]); !match {
 			continue
 		}
 
-		if match, _ := regexp.MatchString("^(amb|blu|brn|gry|grn|hzl|oth)$", fields["ecl"]); !match {
+		if match := regexEcl.MatchString(fields["ecl"]); !match {
 			continue
 		}
 
-		if match, _ := regexp.MatchString("^\\d{9}$", fields["pid"]); !match {
+		if match := regexPid.MatchString(fields["pid"]); !match {
 			continue
 		}
 		validPassports++

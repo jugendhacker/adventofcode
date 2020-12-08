@@ -36,7 +36,7 @@ func calculateID(line string) (seatID int) {
 
 func challenge1(seatIDs map[int]bool) int {
 	var highestSeatID int
-	for seatID, _ := range seatIDs {
+	for seatID := range seatIDs {
 		if highestSeatID < seatID {
 			highestSeatID = seatID
 		}
