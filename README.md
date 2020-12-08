@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/jugendhacker/adventofcode/badge.svg?branch=main)](https://coveralls.io/github/jugendhacker/adventofcode?branch=main)
+
 **⚠️ Warning: may contain spoilers ⚠️**
 
 These are my solutions to the AdventOfCode challenges written in Golang.
