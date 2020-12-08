@@ -9,6 +9,7 @@ import (
 	day5 "github.com/jugendhacker/adventofcode/2020/Day5"
 	day6 "github.com/jugendhacker/adventofcode/2020/Day6"
 	day7 "github.com/jugendhacker/adventofcode/2020/Day7"
+	day8 "github.com/jugendhacker/adventofcode/2020/Day8"
 )
 
 type CLI struct {
@@ -34,5 +35,7 @@ func main() {
 		day6.Run(cli.InputPath)
 	case 7:
 		day7.Run(cli.InputPath)
+	case 8:
+		day8.Run(cli.InputPath)
 	}
 }
