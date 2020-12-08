@@ -55,7 +55,7 @@ func parseInput(input *bufio.Scanner) (rules map[string][]bagWithCount) {
 
 func challenge1(rules map[string][]bagWithCount) int {
 	var goldCounter int
-	for name, _ := range rules {
+	for name := range rules {
 		if findGold(rules, name) {
 			goldCounter++
 		}
@@ -68,11 +68,11 @@ func findGold(rules map[string][]bagWithCount, color string) bool {
 	for _, bag := range rules[color] {
 		if bag.bag == "shiny gold" {
 			return true
-		} else {
-			if findGold(rules, bag.bag) {
-				return true
-			}
 		}
+		if findGold(rules, bag.bag) {
+			return true
+		}
+
 	}
 	return false
 }

@@ -12,6 +12,7 @@ import (
 	day8 "github.com/jugendhacker/adventofcode/2020/Day8"
 )
 
+// CLI Struct that hold the command line arguments passed to the program
 type CLI struct {
 	Day       int    `help:"Day to run" short:"d"`
 	InputPath string `arg name:"path" help:"Path to input file" type:"path"`
