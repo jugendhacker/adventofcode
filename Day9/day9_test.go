@@ -35,3 +35,13 @@ func TestChallenge1(t *testing.T) {
 		t.Errorf("Challenge 1: wrong result %v, wanted %v", result, 127)
 	}
 }
+
+func TestChallenge2(t *testing.T) {
+	scanner := bufio.NewScanner(strings.NewReader(challengeData))
+	numbers := parseData(scanner)
+	resultChallenge1 := challenge1(numbers, 5)
+	result := challenge2(numbers, resultChallenge1)
+	if result != 62 {
+		t.Errorf("Challenge 2: wrong result %v, wanted %v", result, 62)
+	}
+}
