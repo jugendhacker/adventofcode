@@ -10,6 +10,7 @@ import (
 	day6 "github.com/jugendhacker/adventofcode/2020/Day6"
 	day7 "github.com/jugendhacker/adventofcode/2020/Day7"
 	day8 "github.com/jugendhacker/adventofcode/2020/Day8"
+	day9 "github.com/jugendhacker/adventofcode/2020/Day9"
 )
 
 // CLI Struct that hold the command line arguments passed to the program
@@ -38,5 +39,7 @@ func main() {
 		day7.Run(cli.InputPath)
 	case 8:
 		day8.Run(cli.InputPath)
+	case 9:
+		day9.Run(cli.InputPath)
 	}
 }
