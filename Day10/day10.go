@@ -16,7 +16,7 @@ func Run(input string) {
 	adapters := parseData(scanner)
 
 	fmt.Printf("Challenge 1: result %v\n", challenge1(adapters))
-	fmt.Printf("Challenge 2: result %v\n", challenge2(adapters, 0))
+	fmt.Printf("Challenge 2: result %v\n", challenge2(adapters, 0, make(map[int]int)))
 }
 
 func parseData(input *bufio.Scanner) (adapters []int) {
@@ -55,9 +55,12 @@ func challenge1(adapters []int) (result int) {
 	return oneStep * threeStep
 }
 
-func challenge2(adapters []int, index int) (wayCount int) {
+func challenge2(adapters []int, index int, knownResults map[int]int) (wayCount int) {
 	if index == len(adapters)-1 {
 		return 1
+	}
+	if knownResult, ok := knownResults[index]; ok {
+		return knownResult
 	}
 	for i, adapter := range adapters[index+1:] {
 		difference := adapter - adapters[index]
@@ -67,5 +70,6 @@ func challenge2(adapters []int, index int) (wayCount int) {
 			break
 		}
 	}
+	knownResults[index] = wayCount
 	return wayCount
 }
