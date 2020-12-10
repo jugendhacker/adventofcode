@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/alecthomas/kong"
 	day1 "github.com/jugendhacker/adventofcode/2020/Day1"
+	day10 "github.com/jugendhacker/adventofcode/2020/Day10"
 	day2 "github.com/jugendhacker/adventofcode/2020/Day2"
 	day3 "github.com/jugendhacker/adventofcode/2020/Day3"
 	day4 "github.com/jugendhacker/adventofcode/2020/Day4"
@@ -41,5 +42,7 @@ func main() {
 		day8.Run(cli.InputPath)
 	case 9:
 		day9.Run(cli.InputPath)
+	case 10:
+		day10.Run(cli.InputPath)
 	}
 }
