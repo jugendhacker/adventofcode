@@ -16,6 +16,7 @@ func Run(input string) {
 	adapters := parseData(scanner)
 
 	fmt.Printf("Challenge 1: result %v\n", challenge1(adapters))
+	fmt.Printf("Challenge 2: result %v\n", challenge2(adapters, 0))
 }
 
 func parseData(input *bufio.Scanner) (adapters []int) {
@@ -24,6 +25,7 @@ func parseData(input *bufio.Scanner) (adapters []int) {
 		adapter, _ := strconv.Atoi(line)
 		adapters = append(adapters, adapter)
 	}
+	adapters = append(adapters, 0)
 	adaptersSorted := (sort.IntSlice)(adapters)
 	adaptersSorted.Sort()
 	adapters = adaptersSorted
@@ -51,4 +53,19 @@ func challenge1(adapters []int) (result int) {
 		}
 	}
 	return oneStep * threeStep
+}
+
+func challenge2(adapters []int, index int) (wayCount int) {
+	if index == len(adapters)-1 {
+		return 1
+	}
+	for i, adapter := range adapters[index+1:] {
+		difference := adapter - adapters[index]
+		if difference <= 3 {
+			wayCount += challenge2(adapters, index+i+1, knownResults)
+		} else {
+			break
+		}
+	}
+	return wayCount
 }
